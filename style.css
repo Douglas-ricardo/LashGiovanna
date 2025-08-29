@@ -1,0 +1,788 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- Variáveis de Design System --- */
+:root {
+  /* Cores Primárias (Rosa/Pêssego) */
+  --color-primary-light: #ffdde1; /* Rosa muito claro, quase branco */
+  --color-primary-medium: #ff9aa2; /* Rosa médio, base */
+  --color-primary-dark: #e07a82; /* Rosa escuro, para contraste */
+  --color-accent-gold: #d4af37; /* Dourado sutil para detalhes de luxo */
+
+  /* Cores Neutras */
+  --color-text-dark: #2c3e50; /* Azul marinho escuro para texto principal */
+  --color-text-medium: #5a6a7a; /* Cinza azulado para texto secundário */
+  --color-text-light: #9ca3af; /* Cinza claro para texto terciário */
+  --color-bg-light: #fdfdfd; /* Fundo principal */
+  --color-bg-medium: #f5f7fa; /* Fundo de seção suave */
+  --color-border: #e2e8f0; /* Cor de borda padrão */
+
+  /* Cores de Ação */
+  --color-whatsapp-green: #25d366;
+  --color-whatsapp-dark: #128c7e;
+
+  /* Fontes */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Reset Básico e Estilos Globais --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
+  overflow-x: hidden; /* Previne rolagem horizontal indesejada */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-dark);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Componentes Reutilizáveis --- */
+
+/* Botões Primários */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-medium) 0%,
+    var(--color-primary-dark) 100%
+  );
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none; /* Remove borda padrão do botão */
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px); /* Movimento mais pronunciado */
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary-medium) 100%
+  );
+}
+
+/* Botões Secundários (Outline) */
+.btn-outline {
+  border: 2px solid var(--color-primary-medium);
+  color: var(--color-primary-medium);
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary-medium);
+  color: white;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Botão WhatsApp */
+.whatsapp-btn {
+  background: linear-gradient(
+    135deg,
+    var(--color-whatsapp-green),
+    var(--color-whatsapp-dark)
+  );
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-whatsapp-dark),
+    var(--color-whatsapp-green)
+  );
+}
+
+/* Títulos de Seção */
+.section-title {
+  font-family: var(--font-heading);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3.5rem; /* Mais espaço */
+  color: var(--color-text-dark);
+  font-weight: 700;
+  font-size: 3.5rem; /* Tamanho maior */
+  text-align: center; /* Centraliza o título */
+  width: 100%; /* Para centralizar o after */
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px; /* Mais abaixo */
+  left: 50%; /* Centraliza o underline */
+  transform: translateX(-50%); /* Centraliza o underline */
+  width: 100px; /* Mais largo */
+  height: 5px; /* Mais grosso */
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-medium),
+    var(--color-primary-dark)
+  );
+  border-radius: 3px;
+  opacity: 0.8; /* Mais suave */
+}
+
+/* Ícones de Destaque (Círculos Coloridos) */
+.icon-circle {
+  width: 60px; /* Maior */
+  height: 60px; /* Maior */
+  background-color: var(--color-primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.icon-circle i {
+  color: var(--color-primary-dark);
+  font-size: 1.8rem; /* Ícones maiores */
+}
+
+/* Campos de Formulário */
+.form-input {
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--color-border); /* Borda mais fina */
+  border-radius: 12px; /* Mais arredondado */
+  padding: 0.85rem 1.25rem; /* Mais padding */
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  background-color: white;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+}
+
+.form-input:focus {
+  border-color: var(--color-primary-medium);
+  box-shadow: 0 0 0 4px rgba(255, 154, 162, 0.25); /* Sombra de foco mais vibrante */
+  outline: none;
+  background-color: var(--color-bg-light);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px; /* Altura mínima para textarea */
+}
+
+/* --- Layout Específico das Seções --- */
+
+/* Navegação */
+.navbar {
+  backdrop-filter: blur(20px); /* Blur mais intenso */
+  background: rgba(255, 255, 255, 0.85); /* Mais transparente */
+  box-shadow: var(--shadow-md);
+  padding: 1rem 1.5rem; /* Ajuste de padding */
+}
+
+.navbar .text-2xl {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.navbar .text-pink-500 {
+  color: var(--color-primary-medium);
+}
+.navbar .text-pink-600 {
+  color: var(--color-primary-dark);
+}
+
+.navbar a {
+  color: var(--color-text-medium);
+  font-weight: 500;
+  position: relative;
+}
+
+.navbar a:hover {
+  color: var(--color-primary-medium);
+}
+
+.navbar a::after {
+  /* Underline animado */
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--color-primary-medium);
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu {
+  background: var(--color-bg-light);
+  box-shadow: var(--shadow-lg);
+  z-index: 49; /* Abaixo da navbar */
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(
+    160deg,
+    /* Ângulo mais dinâmico */ var(--color-primary-light) 0%,
+    var(--color-bg-light) 60%
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 8rem; /* Mais espaço no topo */
+  padding-bottom: 4rem;
+}
+
+.hero h1 {
+  font-size: 4.5rem; /* Título maior */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Sombra sutil no texto */
+}
+
+.hero h1 .text-pink-500 {
+  color: var(--color-primary-dark);
+}
+
+.hero p {
+  font-size: 1.3rem; /* Texto maior */
+  color: var(--color-text-medium);
+  margin-bottom: 2.5rem;
+  max-width: 600px; /* Limita largura para melhor leitura */
+}
+
+.hero .bg-gray-100 {
+  /* Placeholder da imagem */
+  background: linear-gradient(
+    45deg,
+    var(--color-primary-light),
+    var(--color-bg-medium)
+  );
+  border-radius: 25px; /* Mais arredondado */
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  position: relative;
+  min-height: 450px; /* Altura mínima maior */
+}
+
+.hero .bg-gray-100::before {
+  /* Efeito de brilho sutil */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 70% 30%,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.hero .bg-gray-100 i {
+  color: var(--color-primary-medium);
+  font-size: 5rem; /* Ícone maior */
+  opacity: 0.6;
+}
+
+/* About Section */
+#sobre {
+  background-color: var(--color-bg-medium);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+#sobre h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+#sobre p {
+  font-size: 1.1rem;
+  color: var(--color-text-medium);
+  margin-bottom: 2rem;
+}
+
+#sobre .icon-circle {
+  box-shadow: var(--shadow-md);
+}
+
+#sobre h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+#sobre .space-y-4 > div {
+  align-items: flex-start; /* Alinha o texto ao topo do ícone */
+}
+
+/* Services Section */
+#servicos {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: var(--color-bg-light);
+}
+
+#servicos .section-title {
+  margin-bottom: 4rem;
+}
+
+#servicos > .container > p {
+  /* Descrição da seção */
+  font-size: 1.2rem;
+  color: var(--color-text-medium);
+  text-align: center;
+  margin-top: -2rem; /* Aproxima do título */
+  margin-bottom: 3rem;
+}
+
+.service-card {
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: var(--shadow-md);
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.service-card::before {
+  /* Efeito de fundo sutil */
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--color-primary-light) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 0;
+}
+
+.service-card:hover::before {
+  opacity: 0.2;
+}
+
+.service-card > * {
+  /* Garante que o conteúdo fique acima do pseudo-elemento */
+  position: relative;
+  z-index: 1;
+}
+
+.service-card .icon-circle {
+  margin: 0 auto 1.5rem auto;
+  background-color: var(--color-primary-light);
+  box-shadow: none; /* Remove sombra extra aqui */
+}
+
+.service-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: var(--color-text-medium);
+  margin-bottom: 1.5rem;
+}
+
+.service-card .text-2xl {
+  /* Preço */
+  font-family: var(--font-heading);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.service-card ul li {
+  font-size: 0.95rem;
+  color: var(--color-text-medium);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.service-card ul li i {
+  color: var(--color-whatsapp-green); /* Checkmark verde */
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* Portfolio Section */
+#trabalhos {
+  background-color: var(--color-bg-medium);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+#trabalhos .section-title {
+  margin-bottom: 4rem;
+}
+
+#trabalhos > .container > p {
+  /* Descrição da seção */
+  font-size: 1.2rem;
+  color: var(--color-text-medium);
+  text-align: center;
+  margin-top: -2rem;
+  margin-bottom: 3rem;
+}
+
+.gallery-item {
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-light),
+    var(--color-bg-medium)
+  );
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  min-height: 320px; /* Altura mínima maior */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-placeholder {
+  text-align: center;
+  color: var(--color-text-light);
+  padding: 1.5rem;
+}
+
+.gallery-placeholder i {
+  font-size: 4rem; /* Ícone maior */
+  margin-bottom: 1rem;
+  color: var(--color-primary-medium);
+  opacity: 0.7;
+}
+
+.gallery-placeholder p {
+  font-weight: 600;
+  color: var(--color-text-dark);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-placeholder small {
+  font-size: 0.9rem;
+  color: var(--color-text-medium);
+}
+
+/* Contact Section */
+#contato {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: var(--color-bg-light);
+}
+
+#contato .section-title {
+  margin-bottom: 4rem;
+}
+
+#contato > .container > p {
+  /* Descrição da seção */
+  font-size: 1.2rem;
+  color: var(--color-text-medium);
+  text-align: center;
+  margin-top: -2rem;
+  margin-bottom: 3rem;
+}
+
+#contato h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--color-text-dark);
+}
+
+#contato .space-y-6 > div {
+  align-items: flex-start;
+}
+
+#contato .icon-circle {
+  background-color: var(--color-primary-light);
+  box-shadow: none;
+}
+
+#contato h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+#contato p {
+  color: var(--color-text-medium);
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-text-dark); /* Azul marinho escuro */
+  color: white;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+footer h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+footer h4 {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+footer ul li a {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+footer ul li a:hover {
+  color: white;
+}
+
+footer .flex.space-x-4 a {
+  width: 48px; /* Maior */
+  height: 48px; /* Maior */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.2rem; /* Ícone maior */
+}
+
+footer .flex.space-x-4 a.bg-pink-600 {
+  /* Instagram/Facebook */
+  background-color: var(--color-primary-medium);
+}
+
+footer .flex.space-x-4 a.bg-pink-600:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-3px);
+}
+
+footer .flex.space-x-4 a.bg-green-600 {
+  /* WhatsApp */
+  background-color: var(--color-whatsapp-green);
+}
+
+footer .flex.space-x-4 a.bg-green-600:hover {
+  background-color: var(--color-whatsapp-dark);
+  transform: translateY(-3px);
+}
+
+footer .border-t {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+footer .text-gray-400 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+/* --- Animações (mantidas e aprimoradas) --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px); /* Mais movimento */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards; /* Duração e easing ajustados */
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* --- Responsividade (Ajustes para telas menores) --- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .service-card {
+    padding: 2rem;
+  }
+  .service-card h3 {
+    font-size: 1.75rem;
+  }
+  .service-card .text-2xl {
+    font-size: 2rem;
+  }
+  #sobre h3,
+  #contato h3 {
+    font-size: 2rem;
+  }
+  footer h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 6rem;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn-primary,
+  .btn-outline,
+  .whatsapp-btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-title::after {
+    width: 80px;
+    height: 4px;
+    bottom: -10px;
+  }
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+  }
+  .icon-circle i {
+    font-size: 1.5rem;
+  }
+  .service-card,
+  .gallery-item {
+    min-height: auto; /* Remove altura mínima para flexibilidade */
+  }
+  .gallery-placeholder i {
+    font-size: 3rem;
+  }
+  .gallery-placeholder p {
+    font-size: 1rem;
+  }
+  #contato .grid {
+    grid-template-columns: 1fr; /* Coluna única em mobile */
+  }
+  footer .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  footer .flex.space-x-4 {
+    justify-content: center;
+  }
+}
