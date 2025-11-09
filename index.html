@@ -3,795 +3,1266 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Studio de Cílios</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    <meta
+      name="description"
+      content="Lash Giovanna Castro - Especialista em design de cílios e extensões. Cursos profissionais e serviços premium de alongamento de cílios."
     />
-    <link rel="stylesheet" href="style.css" />
+    <title>Lash Giovanna Castro | Design de Cílios Premium</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================
+           CSS VARIABLES - VISUAL IDENTITY
+           ============================================ */
+      :root {
+        /* Color Palette */
+        --color-black: #000000; /* Primary buttons / CTAs */
+        --color-charcoal: #1e1e1e; /* Body text */
+        --color-light-gray: #d1d1d1; /* Borders / dividers */
+        --color-white: #ffffff; /* Backgrounds */
+        --color-gold: #c9a76a; /* Accent ONLY - borders/highlights */
+
+        /* Typography Scale */
+        --font-heading: 'Playfair Display', Georgia, serif;
+        --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+        /* Font Sizes - Desktop */
+        --fs-h1: 56px;
+        --fs-h2: 40px;
+        --fs-h3: 28px;
+        --fs-body: 16px;
+        --fs-small: 14px;
+
+        /* Spacing */
+        --spacing-xs: 8px;
+        --spacing-sm: 16px;
+        --spacing-md: 24px;
+        --spacing-lg: 48px;
+        --spacing-xl: 80px;
+
+        /* Border Radius */
+        --radius: 12px;
+
+        /* Transitions */
+        --transition: all 0.3s ease;
+      }
+
+      /* ============================================
+           GLOBAL RESET & BASE STYLES
+           ============================================ */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: var(--fs-body);
+        color: var(--color-charcoal);
+        background-color: var(--color-white);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: var(--spacing-md);
+      }
+
+      h1 {
+        font-size: var(--fs-h1);
+      }
+
+      h2 {
+        font-size: var(--fs-h2);
+      }
+
+      h3 {
+        font-size: var(--fs-h3);
+      }
+
+      p {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.7;
+      }
+
+      /* ============================================
+           NAVIGATION
+           ============================================ */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        padding: var(--spacing-sm) 0;
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+      }
+
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--color-black);
+        text-decoration: none;
+      }
+
+      .logo span {
+        color: var(--color-gold);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-md);
+      }
+
+      .nav-links a {
+        color: var(--color-charcoal);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: 6px;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus {
+        color: var(--color-gold);
+        background-color: rgba(201, 167, 106, 0.1);
+        outline: none;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--color-black);
+      }
+
+      /* ============================================
+           BUTTONS & CTAs
+           ============================================ */
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        text-decoration: none;
+        border-radius: var(--radius);
+        font-weight: 600;
+        border: 2px solid var(--color-black);
+        transition: var(--transition);
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: var(--fs-body);
+      }
+
+      .btn:hover,
+      .btn:focus {
+        background-color: transparent;
+        color: var(--color-black);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        outline: 2px solid var(--color-black);
+        outline-offset: 2px;
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--color-black);
+        border: 2px solid var(--color-gold);
+      }
+
+      .btn-secondary:hover,
+      .btn-secondary:focus {
+        background-color: var(--color-gold);
+        border-color: var(--color-gold);
+        color: var(--color-white);
+      }
+
+      /* ============================================
+           CONTAINER & SECTIONS
+           ============================================ */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+      }
+
+      section {
+        padding: var(--spacing-xl) 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+        position: relative;
+      }
+
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: var(--color-gold);
+        margin: var(--spacing-md) auto 0;
+      }
+
+      /* ============================================
+           HERO SECTION
+           ============================================ */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+        background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      }
+
+      .hero-content {
+        display: grid;
+        grid-template-columns: 5fr 4fr; /* Reduz o espaço horizontal do vídeo */
+        gap: var(--spacing-xl);
+        align-items: start; /* Alinha o vídeo e o texto pelo topo */
+      }
+
+      .hero-text h1 {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .hero-text .subtitle {
+        font-size: 20px;
+        color: var(--color-gold);
+        font-weight: 500;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .hero-text p {
+        font-size: 18px;
+        margin-bottom: var(--spacing-lg);
+        color: var(--color-charcoal);
+        opacity: 0.9;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+      }
+
+      .hero-image {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-image img,
+      .hero-image video {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover; /* Faz o vídeo cobrir o container sem distorcer */
+      }
+
+      .hero-image::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100px;
+        height: 100px;
+        border: 3px solid var(--color-gold);
+        border-radius: var(--radius);
+        z-index: -1;
+      }
+
+      /* ============================================
+           ABOUT SECTION
+           ============================================ */
+      #about {
+        background-color: #fafafa;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+      }
+
+      .about-image {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .about-text h2 {
+        text-align: left;
+      }
+
+      .about-text h2::after {
+        margin: var(--spacing-md) 0;
+        margin-left: 0;
+      }
+
+      /* ============================================
+           SERVICES SECTION
+           ============================================ */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-lg);
+      }
+
+      .service-card {
+        background-color: var(--color-white);
+        border-radius: var(--radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        transition: var(--transition);
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .service-card:hover,
+      .service-card:focus-within {
+        /* transform: translateY(-8px); */ /* Removido para igualar ao efeito da galeria */
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        border-color: var(--color-gold);
+      }
+
+      .service-card .service-image {
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        border-radius: var(--radius) var(--radius) 0 0;
+        position: relative; /* Necessário para o efeito de sobreposição */
+      }
+
+      .service-card .service-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: var(--transition); /* Adiciona transição suave */
+      }
+
+      /* Efeito de zoom na imagem ao passar o mouse no card */
+      .service-card:hover .service-image img {
+        transform: scale(1.08);
+      }
+
+      /* Efeito de sobreposição gradiente */
+      .service-card .service-image::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .service-icon {
+        font-size: 48px;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .service-card h3 {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .service-card p {
+        color: var(--color-charcoal);
+        opacity: 0.8;
+        margin-bottom: 0;
+      }
+
+      .service-card .service-content {
+        padding: var(--spacing-lg);
+        padding-top: var(--spacing-md);
+        flex-grow: 1;
+        /* position: relative; */ /* Removido para que o overlay cubra o texto */
+        /* z-index: 2; */
+      }
+
+      .service-card:hover .service-image::after {
+        opacity: 1;
+      }
+
+      /* ============================================
+           COURSE SECTION
+           ============================================ */
+      #course {
+        background: linear-gradient(135deg, #1e1e1e 0%, #000000 100%);
+        color: var(--color-white);
+      }
+
+      #course .section-title {
+        color: var(--color-white);
+      }
+
+      .course-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+        margin-top: var(--spacing-lg);
+      }
+
+      .course-info h3 {
+        color: var(--color-gold);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .course-info p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .course-features {
+        list-style: none;
+        margin: var(--spacing-lg) 0;
+      }
+
+      .course-features li {
+        padding: var(--spacing-sm) 0;
+        padding-left: var(--spacing-md);
+        position: relative;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .course-features li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-gold);
+        font-weight: bold;
+      }
+
+      .course-image {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .course-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .btn-light {
+        background-color: var(--color-white);
+        color: var(--color-black);
+        border-color: var(--color-white);
+      }
+
+      .btn-light:hover,
+      .btn-light:focus {
+        background-color: var(--color-gold);
+        border-color: var(--color-gold);
+        color: var(--color-white);
+      }
+
+      /* ============================================
+           CONTACT SECTION
+           ============================================ */
+      #contact {
+        background-color: #fafafa;
+      }
+
+      .contact-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: var(--color-white);
+        padding: var(--spacing-xl);
+        border-radius: var(--radius);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        border: 2px solid var(--color-light-gray);
+      }
+
+      .form-group {
+        margin-bottom: var(--spacing-md);
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: var(--spacing-xs);
+        font-weight: 600;
+        color: var(--color-charcoal);
+      }
+
+      .form-group label .required {
+        color: var(--color-gold);
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid var(--color-light-gray);
+        border-radius: 8px; /* Reduzido para um retângulo mais sutil */
+        font-family: var(--font-body);
+        font-size: var(--fs-body);
+        transition: var(--transition);
+        background-color: var(--color-white);
+        color: var(--color-black); /* Garante que o texto seja preto */
+      }
+
+      /* Garante que as opções do dropdown também tenham texto preto */
+      .form-group select option {
+        background: var(--color-white);
+        color: var(--color-black);
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-gold);
+        box-shadow: 0 0 0 3px rgba(201, 167, 106, 0.1);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .error-message {
+        color: #d32f2f;
+        font-size: var(--fs-small);
+        margin-top: var(--spacing-xs);
+        display: none;
+      }
+
+      .form-group.error input,
+      .form-group.error select,
+      .form-group.error textarea {
+        border-color: #d32f2f;
+      }
+
+      .form-group.error .error-message {
+        display: block;
+      }
+
+      .form-actions {
+        margin-top: var(--spacing-lg);
+        text-align: center;
+      }
+
+      /* ============================================
+           FOOTER
+           ============================================ */
+      footer {
+        background-color: var(--color-black);
+        color: var(--color-white);
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+        text-align: center;
+      }
+
+      footer p {
+        margin: 0;
+        opacity: 0.8;
+      }
+
+      footer a {
+        color: var(--color-gold);
+        text-decoration: none;
+      }
+
+      footer a:hover,
+      footer a:focus {
+        text-decoration: underline;
+      }
+
+      .footer-social {
+        margin-top: var(--spacing-sm);
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-md);
+      }
+
+      .social-link {
+        color: var(--color-white);
+        transition: var(--transition);
+      }
+
+      .social-link:hover,
+      .social-link:focus {
+        color: var(--color-gold);
+        transform: scale(1.1);
+      }
+
+      .social-link svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ============================================
+           RESPONSIVE BREAKPOINTS
+           ============================================ */
+
+      /* Tablet: 601px - 1024px */
+      @media (max-width: 1024px) {
+        :root {
+          --fs-h1: 48px;
+          --fs-h2: 36px;
+          --fs-h3: 24px;
+          --spacing-xl: 60px;
+        }
+
+        .services-grid,
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Mobile: ≤ 600px */
+      @media (max-width: 600px) {
+        :root {
+          --fs-h1: 36px;
+          --fs-h2: 28px;
+          --fs-h3: 22px;
+          --fs-body: 15px;
+          --spacing-xl: 40px;
+          --spacing-lg: 32px;
+        }
+
+        /* Navigation */
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--color-white);
+          flex-direction: column;
+          padding: var(--spacing-md);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        /* Hero - Stack on mobile */
+        .hero-content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-text {
+          order: 1;
+        }
+
+        .hero-image {
+          order: 2;
+        }
+
+        .hero-cta {
+          flex-direction: column;
+        }
+
+        .hero-cta .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        /* About */
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        /* Services */
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* Course */
+        .course-content {
+          grid-template-columns: 1fr;
+        }
+
+        /* Contact */
+        .contact-container {
+          padding: var(--spacing-md);
+        }
+      }
+
+      /* Accessibility - Focus Visible */
+      *:focus-visible {
+        outline: 2px solid var(--color-gold);
+        outline-offset: 4px;
+      }
+    </style>
   </head>
-  <body class="bg-white">
-    <!-- Navigation -->
-    <nav class="navbar fixed w-full z-50 py-4 px-6 shadow-sm">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="text-2xl font-bold text-pink-500">
-          <span class="text-pink-600">Lash</span>Studio
-        </div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
-          <a
-            href="#inicio"
-            class="text-gray-700 hover:text-pink-500 transition-colors"
-            >Início</a
-          >
-          <a
-            href="#sobre"
-            class="text-gray-700 hover:text-pink-500 transition-colors"
-            >Sobre</a
-          >
-          <a
-            href="#servicos"
-            class="text-gray-700 hover:text-pink-500 transition-colors"
-            >Serviços</a
-          >
-          <a
-            href="#trabalhos"
-            class="text-gray-700 hover:text-pink-500 transition-colors"
-            >Trabalhos</a
-          >
-          <a
-            href="#contato"
-            class="text-gray-700 hover:text-pink-500 transition-colors"
-            >Contato</a
-          >
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="menuBtn" class="md:hidden text-gray-700">
-          <i class="fas fa-bars text-2xl"></i>
+  <body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav role="navigation" aria-label="Main Navigation">
+      <div class="container">
+        <a href="#hero" class="logo">Lash <span>Giovanna Castro</span></a>
+        <button
+          class="mobile-menu-btn"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="hamburger-icon">☰</span>
         </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div
-        id="mobileMenu"
-        class="mobile-menu fixed top-16 left-0 w-full h-0 bg-white shadow-lg overflow-hidden"
-      >
-        <div class="flex flex-col space-y-4 p-6">
-          <a href="#inicio" class="text-gray-700 hover:text-pink-500 py-2"
-            >Início</a
-          >
-          <a href="#sobre" class="text-gray-700 hover:text-pink-500 py-2"
-            >Sobre</a
-          >
-          <a href="#servicos" class="text-gray-700 hover:text-pink-500 py-2"
-            >Serviços</a
-          >
-          <a href="#trabalhos" class="text-gray-700 hover:text-pink-500 py-2"
-            >Trabalhos</a
-          >
-          <a href="#contato" class="text-gray-700 hover:text-pink-500 py-2"
-            >Contato</a
-          >
-        </div>
+        <ul class="nav-links">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#course">Curso</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero pt-20">
-      <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="animate-fade-in-up">
-            <h1
-              class="text-5xl md:text-6xl font-bold text-gray-800 mb-6 font-playfair"
-            >
-              Realce sua <span class="text-pink-500">beleza</span> natural
-            </h1>
-            <p class="text-xl text-gray-600 mb-8">
-              Especialistas em extensão de cílios com técnicas avançadas para um
-              olhar irresistível e natural.
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="subtitle">Especialista em Design de Cílios</p>
+            <h1>Realce seu olhar. Ele é sua marca</h1>
+            <p>
+              Sou especialista em design e alongamento de cílios, apaixonada por
+              realçar a beleza natural de cada mulher. Com técnicas seguras,
+              precisas e resultados personalizados, transformo olhares com
+              leveza, elegância e sofisticação — sempre valorizando sua essência
+              e autoestima.
             </p>
-            <div class="flex flex-wrap gap-4">
-              <a
-                href="#contato"
-                class="btn-primary text-white px-8 py-4 rounded-full font-semibold"
+            <div class="hero-cta">
+              <a href="#contact" class="btn">Agende Agora</a>
+              <a href="#services" class="btn btn-secondary"
+                >Conheça os Serviços</a
               >
-                Agendar Horário
-              </a>
-              <a
-                href="#servicos"
-                class="border-2 border-pink-500 text-pink-500 px-8 py-4 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition-colors"
-              >
-                Ver Serviços
-              </a>
             </div>
           </div>
-          <div class="animate-fade-in-up delay-100">
-            <div
-              class="bg-gray-100 rounded-2xl shadow-2xl w-full h-96 flex items-center justify-center"
-            >
-              <div class="text-center text-gray-500">
-                <i class="fas fa-eye text-4xl mb-4 text-pink-400"></i>
-                <p>Espaço para sua foto principal</p>
-              </div>
-            </div>
+          <div class="hero-image">
+            <!-- A tag de vídeo substitui a imagem -->
+            <video src="img/video1.mp4" autoplay loop muted playsinline>
+              Seu navegador não suporta vídeos.
+            </video>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2
-            class="section-title text-4xl md:text-5xl font-bold text-gray-800"
-          >
-            Sobre Nós
-          </h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div
-              class="bg-gray-100 rounded-2xl shadow-lg w-full h-96 flex items-center justify-center"
-            >
-              <div class="text-center text-gray-500">
-                <i class="fas fa-spa text-4xl mb-4 text-pink-400"></i>
-                <p>Espaço para foto do estúdio</p>
-              </div>
-            </div>
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section id="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="img/foto_principal.jpg"
+              alt="Giovanna Castro, especialista em design de cílios"
+              loading="lazy"
+            />
           </div>
-          <div>
-            <h3 class="text-3xl font-bold text-gray-800 mb-6">
-              Excelência em Extensão de Cílios
-            </h3>
-            <p class="text-gray-600 mb-6 text-lg">
-              Sou lash designer apaixonada por realçar a beleza natural. Em 3
-              anos de trabalho, já trouxe confiança e encanto para mais de 300
-              mulheres através do olhar.
+          <div class="about-text">
+            <h2>Sobre Mim</h2>
+            <p>
+              Sou Giovanna Castro, enfermeira e especialista em design de
+              cílios. Minha paixão por realçar a beleza feminina nasceu do
+              desejo de unir cuidado, autoestima e bem-estar em cada
+              atendimento. Acredito que cada mulher tem um olhar único — e o meu
+              trabalho é valorizar esse olhar de forma natural e sofisticada.
             </p>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-award text-pink-500 text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">
-                    Profissional Certificada
-                  </h4>
-                  <p class="text-gray-600">Técnicas modernas e seguras</p>
-                </div>
-              </div>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-star text-pink-500 text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Materiais Premium</h4>
-                  <p class="text-gray-600">Produtos de alta qualidade</p>
-                </div>
-              </div>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-heart text-pink-500 text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">
-                    Atendimento Personalizado
-                  </h4>
-                  <p class="text-gray-600">Cuidado individualizado</p>
-                </div>
-              </div>
-            </div>
+            <p>
+              Com formação em Enfermagem e capacitação em estética, trago para o
+              meu trabalho o olhar técnico e o cuidado humanizado que aprendi na
+              profissão. Cada extensão é feita com atenção aos detalhes, técnica
+              precisa e materiais de alta qualidade, para resultados duradouros,
+              leves e confortáveis.
+            </p>
+            <p>
+              Mais do que cílios, ofereço uma experiência completa — um momento
+              para você se sentir confiante, linda e especial.
+            </p>
+            <a href="#contact" class="btn">Entre em Contato</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicos" class="py-20">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2
-            class="section-title text-4xl md:text-5xl font-bold text-gray-800"
-          >
-            Nossos Serviços
-          </h2>
-          <p class="text-xl text-gray-600 mt-4">
-            Técnicas especializadas para todos os estilos
-          </p>
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
+    <section id="services">
+      <!-- O ID foi mantido para o link do menu -->
+      <div class="container">
+        <div class="section-title">
+          <h2>Nossos Serviços</h2>
         </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Service 1 -->
-          <div
-            class="service-card bg-white p-8 rounded-2xl shadow-lg text-center"
-          >
-            <div
-              class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6"
-            >
-              <i class="fas fa-eye text-pink-500 text-3xl"></i>
+        <div class="services-grid">
+          <!-- Serviço 1: Fio a Fio Clássico -->
+          <article class="service-card">
+            <div class="service-image">
+              <img
+                src="img/Classico.jpg"
+                alt="Extensão de cílios Fio a Fio Clássico"
+                loading="lazy"
+              />
             </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Volume Brown</h3>
-            <p class="text-gray-600 mb-6">
-              Técnica especial com fios na cor marrom para um efeito mais
-              natural e suave.
+            <div class="service-content">
+              <h3>Fio a Fio Clássico</h3>
+              <p>
+                Alongamento natural e elegante que realça a beleza dos seus
+                cílios de forma sutil e harmoniosa.
+              </p>
+            </div>
+          </article>
+
+          <!-- Serviço 2: Volume Brasileiro -->
+          <article class="service-card">
+            <div class="service-image">
+              <img
+                src="img/Brasileiro.jpg"
+                alt="Extensão de cílios Volume Brasileiro"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Volume Brasileiro</h3>
+              <p>
+                Traz mais volume do que o fio a fio para quem quer ousar sem
+                perder a naturalidade.
+              </p>
+            </div>
+          </article>
+
+          <!-- Serviço 3: Volume Light -->
+          <article class="service-card">
+            <div class="service-image">
+              <img
+                src="img/Light.jpg"
+                alt="Extensão de cílios Volume Light"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Volume Light</h3>
+              <p>
+                Um volume leve e um pouco menor do que o volume premium, uma
+                ótima técnica para quem gosta do volume híbrido.
+              </p>
+            </div>
+          </article>
+
+          <!-- Serviço 4: Volume Jade -->
+          <article class="service-card">
+            <div class="service-image">
+              <img
+                src="img/Jade.jpg"
+                alt="Extensão de cílios Volume Jade"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Volume Jade</h3>
+              <p>
+                Conhecido também como efeito molhado, trazendo delicadeza e
+                volume sem pesar no olhar.
+              </p>
+            </div>
+          </article>
+
+          <!-- Serviço 5: Volume Premium -->
+          <article class="service-card">
+            <div class="service-image">
+              <img
+                src="img/Premium.jpg"
+                alt="Extensão de cílios Volume Premium"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Volume Premium</h3>
+              <p>
+                É a técnica mais cheia do studio, feita para quem gosta de um
+                cílios bem pretinho e preenchido.
+              </p>
+            </div>
+          </article>
+
+          <!-- Serviço 6: Manutenção Premium -->
+          <article class="service-card">
+            <div class="service-image">
+              <img
+                src="img/Manutenção.jpg"
+                alt="Manutenção de cílios"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Manutenção Premium</h3>
+              <p>
+                Serviço de retoque profissional para manter seus cílios sempre
+                perfeitos e duradouros.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         COURSE SECTION
+         ============================================ -->
+    <section id="course">
+      <div class="container">
+        <div class="section-title">
+          <h2>Curso Profissional de Cílios</h2>
+        </div>
+        <div class="course-content">
+          <div class="course-info">
+            <h3>Transforme Sua Paixão em Profissão</h3>
+            <p>
+              O Método Prime Lash foi desenvolvido para oferecer uma formação
+              completa, prática e acessível, ideal para quem deseja se tornar
+              uma lash designer profissional e se destacar no mercado da beleza.
             </p>
-            <div class="text-2xl font-bold text-pink-500 mb-4">R$ 180</div>
-            <ul class="text-left space-y-2 mb-6">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Duração: 2-3 horas</span>
+            <p>
+              Curso completo com certificação, suporte exclusivo para você
+              dominar a arte do alongamento de cílios.
+            </p>
+
+            <ul class="course-features">
+              <li>
+                Técnicas de Volume Classico, Brasileiro, Light, Jade e Premium
               </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Durabilidade: 4-5 semanas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Efeito natural e suave</span>
-              </li>
+              <li>Design e mapeamento personalizado</li>
+              <li>Certificado reconhecido</li>
+              <li>Suporte pós-curso</li>
+              <li>Aulas práticas com modelos reais</li>
             </ul>
-            <a
-              href="#contato"
-              class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-block"
-              >Agendar</a
-            >
+
+            <a href="#contact" class="btn btn-light">Quero Saber Mais</a>
           </div>
-
-          <!-- Service 2 -->
-          <div
-            class="service-card bg-white p-8 rounded-2xl shadow-lg text-center"
-          >
-            <div
-              class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6"
-            >
-              <i class="fas fa-magic text-pink-500 text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">
-              Volume Brasileiro
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Técnica que proporciona volume médio com efeito dramático e
-              elegante.
-            </p>
-            <div class="text-2xl font-bold text-pink-500 mb-4">R$ 200</div>
-            <ul class="text-left space-y-2 mb-6">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Duração: 2.5-3.5 horas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Durabilidade: 4-6 semanas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Efeito dramático elegante</span>
-              </li>
-            </ul>
-            <a
-              href="#contato"
-              class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-block"
-              >Agendar</a
-            >
-          </div>
-
-          <!-- Service 3 -->
-          <div
-            class="service-card bg-white p-8 rounded-2xl shadow-lg text-center"
-          >
-            <div
-              class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6"
-            >
-              <i class="fas fa-crown text-pink-500 text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">
-              Volume Premium
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Técnica avançada com fios de alta qualidade para máximo volume e
-              durabilidade.
-            </p>
-            <div class="text-2xl font-bold text-pink-500 mb-4">R$ 250</div>
-            <ul class="text-left space-y-2 mb-6">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Duração: 3-4 horas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Durabilidade: 5-6 semanas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Máximo volume e qualidade</span>
-              </li>
-            </ul>
-            <a
-              href="#contato"
-              class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-block"
-              >Agendar</a
-            >
-          </div>
-
-          <!-- Service 4 -->
-          <div
-            class="service-card bg-white p-8 rounded-2xl shadow-lg text-center"
-          >
-            <div
-              class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6"
-            >
-              <i class="fas fa-feather text-pink-500 text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Volume Light</h3>
-            <p class="text-gray-600 mb-6">
-              Técnica leve para quem busca um efeito discreto e natural no dia a
-              dia.
-            </p>
-            <div class="text-2xl font-bold text-pink-500 mb-4">R$ 150</div>
-            <ul class="text-left space-y-2 mb-6">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Duração: 1.5-2 horas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Durabilidade: 3-4 semanas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Efeito discreto e natural</span>
-              </li>
-            </ul>
-            <a
-              href="#contato"
-              class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-block"
-              >Agendar</a
-            >
-          </div>
-
-          <!-- Service 5 -->
-          <div
-            class="service-card bg-white p-8 rounded-2xl shadow-lg text-center"
-          >
-            <div
-              class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6"
-            >
-              <i class="fas fa-gem text-pink-500 text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">
-              Volume Clássico
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Técnica tradicional que adiciona um falso cílio para cada cílio
-              natural.
-            </p>
-            <div class="text-2xl font-bold text-pink-500 mb-4">R$ 170</div>
-            <ul class="text-left space-y-2 mb-6">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Duração: 2-2.5 horas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Durabilidade: 4-5 semanas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Efeito clássico e elegante</span>
-              </li>
-            </ul>
-            <a
-              href="#contato"
-              class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-block"
-              >Agendar</a
-            >
-          </div>
-
-          <!-- Service 6 -->
-          <div
-            class="service-card bg-white p-8 rounded-2xl shadow-lg text-center"
-          >
-            <div
-              class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6"
-            >
-              <i class="fas fa-sync-alt text-pink-500 text-3xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Manutenção</h3>
-            <p class="text-gray-600 mb-6">
-              Serviço de preenchimento para manter seus cílios sempre perfeitos.
-            </p>
-            <div class="text-2xl font-bold text-pink-500 mb-4">R$ 90</div>
-            <ul class="text-left space-y-2 mb-6">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Duração: 1-1.5 horas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Recomendado a cada 2-3 semanas</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span>Mantém a perfeição</span>
-              </li>
-            </ul>
-            <a
-              href="#contato"
-              class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-block"
-              >Agendar</a
-            >
+          <div class="course-image">
+            <img
+              src="img/Curso.jpg"
+              alt="Curso profissional de extensão de cílios"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="trabalhos" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2
-            class="section-title text-4xl md:text-5xl font-bold text-gray-800"
-          >
-            Nossos Trabalhos
-          </h2>
-          <p class="text-xl text-gray-600 mt-4">Resultados que falam por si</p>
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Entre em Contato</h2>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Volume Brown -->
-          <div class="gallery-item">
-            <div class="gallery-placeholder">
-              <i class="fas fa-eye"></i>
-              <p>Volume Brown</p>
-              <small>Adicione suas fotos aqui</small>
+        <div class="contact-container">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name"
+                >Nome Completo <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                aria-required="true"
+                placeholder="Digite seu nome completo"
+              />
+              <span class="error-message">Por favor, preencha seu nome</span>
             </div>
-          </div>
 
-          <!-- Volume Brasileiro -->
-          <div class="gallery-item">
-            <div class="gallery-placeholder">
-              <i class="fas fa-magic"></i>
-              <p>Volume Brasileiro</p>
-              <small>Adicione suas fotos aqui</small>
+            <div class="form-group">
+              <label for="phone"
+                >WhatsApp <span class="required">*</span></label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                aria-required="true"
+                placeholder="(00) 00000-0000"
+              />
+              <span class="error-message"
+                >Por favor, preencha um telefone válido</span
+              >
             </div>
-          </div>
 
-          <!-- Volume Premium -->
-          <div class="gallery-item">
-            <div class="gallery-placeholder">
-              <i class="fas fa-crown"></i>
-              <p>Volume Premium</p>
-              <small>Adicione suas fotos aqui</small>
+            <div class="form-group">
+              <label for="service">Serviço Desejado</label>
+              <select id="service" name="service">
+                <option value="">Selecione um serviço de interesse</option>
+                <option value="Fio a Fio Clássico">Fio a Fio Clássico</option>
+                <option value="Volume Brasileiro">Volume Brasileiro</option>
+                <option value="Volume Light">Volume Light</option>
+                <option value="Volume Jade">Volume Jade</option>
+                <option value="Volume Premium">Volume Premium</option>
+                <option value="Manutenção Premium">Manutenção Premium</option>
+                <option value="Informações sobre o Curso">
+                  Informações sobre o Curso
+                </option>
+              </select>
             </div>
-          </div>
 
-          <!-- Volume Light -->
-          <div class="gallery-item">
-            <div class="gallery-placeholder">
-              <i class="fas fa-feather"></i>
-              <p>Volume Light</p>
-              <small>Adicione suas fotos aqui</small>
+            <div class="form-group">
+              <label for="courseInterest"
+                >Interesse em Curso Profissional</label
+              >
+              <select id="courseInterest" name="courseInterest">
+                <option value="Não">Não</option>
+                <option value="Sim - Gostaria de mais informações">
+                  Sim - Gostaria de mais informações
+                </option>
+              </select>
             </div>
-          </div>
 
-          <!-- Volume Clássico -->
-          <div class="gallery-item">
-            <div class="gallery-placeholder">
-              <i class="fas fa-gem"></i>
-              <p>Volume Clássico</p>
-              <small>Adicione suas fotos aqui</small>
+            <div class="form-group">
+              <label for="message">Mensagem</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Conte-me mais sobre o que você procura..."
+              ></textarea>
             </div>
-          </div>
 
-          <!-- Manutenção -->
-          <div class="gallery-item">
-            <div class="gallery-placeholder">
-              <i class="fas fa-sync-alt"></i>
-              <p>Manutenção</p>
-              <small>Adicione suas fotos aqui</small>
+            <div class="form-actions">
+              <button type="submit" class="btn">Enviar via WhatsApp</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contato" class="py-20">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2
-            class="section-title text-4xl md:text-5xl font-bold text-gray-800"
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer role="contentinfo">
+      <div class="container">
+        <p>&copy; 2025 Lash Giovanna Castro. Todos os direitos reservados.</p>
+        <p>Desenvolvido com 💛 para realçar sua beleza</p>
+        <div class="footer-social">
+          <a
+            href="https://www.instagram.com/lashgiovannacastro/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="Siga-nos no Instagram"
           >
-            Agende seu Horário
-          </h2>
-          <p class="text-xl text-gray-600 mt-4">
-            Entre em contato e reserve seu horário
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-6">
-              Informações de Contato
-            </h3>
-
-            <div class="space-y-6">
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-map-marker-alt text-pink-500"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Endereço</h4>
-                  <p class="text-gray-600">
-                    Praça Leonardo de Barros Carvalho, 66 - Vila Nhocuné
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-phone text-pink-500"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Telefone</h4>
-                  <p class="text-gray-600">(11) 97539-6464</p>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-envelope text-pink-500"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Email</h4>
-                  <p class="text-gray-600">Giovanna036@icloud.com</p>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4"
-                >
-                  <i class="fas fa-clock text-pink-500"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">
-                    Horário de Funcionamento
-                  </h4>
-                  <p class="text-gray-600">Seg-Sex: 9h-18h | Sáb: 9h-14h</p>
-                </div>
-              </div>
-
-              <div class="pt-6">
-                <a
-                  href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar um horário para extensão de cílios."
-                  target="_blank"
-                  class="whatsapp-btn text-white px-6 py-3 rounded-full font-semibold inline-flex items-center"
-                >
-                  <i class="fab fa-whatsapp mr-2 text-lg"></i>
-                  Falar no WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <form id="agendamentoForm" class="space-y-6">
-              <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label class="block text-gray-700 mb-2">Nome</label>
-                  <input
-                    type="text"
-                    id="nome"
-                    class="form-input w-full px-4 py-3"
-                    placeholder="Seu nome completo"
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="block text-gray-700 mb-2">Telefone</label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    class="form-input w-full px-4 py-3"
-                    placeholder="(11) 99999-9999"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label class="block text-gray-700 mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-input w-full px-4 py-3"
-                  placeholder="seu@email.com"
-                />
-              </div>
-
-              <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label class="block text-gray-700 mb-2"
-                    >Serviço Desejado</label
-                  >
-                  <select
-                    id="servico"
-                    class="form-input w-full px-4 py-3"
-                    required
-                  >
-                    <option value="">Selecione um serviço</option>
-                    <option value="Volume Brown">Volume Brown</option>
-                    <option value="Volume Brasileiro">Volume Brasileiro</option>
-                    <option value="Volume Premium">Volume Premium</option>
-                    <option value="Volume Light">Volume Light</option>
-                    <option value="Volume Clássico">Volume Clássico</option>
-                    <option value="Manutenção">Manutenção</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-gray-700 mb-2">Data Preferida</label>
-                  <input
-                    type="date"
-                    id="data"
-                    class="form-input w-full px-4 py-3"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label class="block text-gray-700 mb-2">Mensagem</label>
-                <textarea
-                  id="mensagem"
-                  class="form-input w-full px-4 py-3"
-                  rows="4"
-                  placeholder="Alguma observação ou preferência especial..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="whatsapp-btn text-white px-8 py-4 rounded-full font-semibold w-full flex items-center justify-center"
-              >
-                <i class="fab fa-whatsapp mr-2 text-lg"></i>
-                Agendar via WhatsApp
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-8">
-          <div>
-            <h3 class="text-2xl font-bold mb-4">LashStudio</h3>
-            <p class="text-gray-400">
-              Especialista em beleza e extensão de cílios com resultados
-              excepcionais.
-            </p>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-4">Links Rápidos</h4>
-            <ul class="space-y-2">
-              <li>
-                <a href="#inicio" class="text-gray-400 hover:text-white"
-                  >Início</a
-                >
-              </li>
-              <li>
-                <a href="#sobre" class="text-gray-400 hover:text-white"
-                  >Sobre</a
-                >
-              </li>
-              <li>
-                <a href="#servicos" class="text-gray-400 hover:text-white"
-                  >Serviços</a
-                >
-              </li>
-              <li>
-                <a href="#trabalhos" class="text-gray-400 hover:text-white"
-                  >Trabalhos</a
-                >
-              </li>
-              <li>
-                <a href="#contato" class="text-gray-400 hover:text-white"
-                  >Contato</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-4">Serviços</h4>
-            <ul class="space-y-2">
-              <li>
-                <a href="#servicos" class="text-gray-400 hover:text-white"
-                  >Volume Brown</a
-                >
-              </li>
-              <li>
-                <a href="#servicos" class="text-gray-400 hover:text-white"
-                  >Volume Brasileiro</a
-                >
-              </li>
-              <li>
-                <a href="#servicos" class="text-gray-400 hover:text-white"
-                  >Volume Premium</a
-                >
-              </li>
-              <li>
-                <a href="#servicos" class="text-gray-400 hover:text-white"
-                  >Volume Light</a
-                >
-              </li>
-              <li>
-                <a href="#servicos" class="text-gray-400 hover:text-white"
-                  >Volume Clássico</a
-                >
-              </li>
-              <li>
-                <a href="#servicos" class="text-gray-400 hover:text-white"
-                  >Manutenção</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-4">Redes Sociais</h4>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="https://wa.me/5511999999999"
-                class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-500"
-              >
-                <i class="fab fa-whatsapp"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p class="text-gray-400">
-            © 2024 LashStudio. Todos os direitos reservados.
-          </p>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.667 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.667-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74 0 8.333.011 7.053.069 2.59.245.245 2.59.069 7.053.011 8.333 0 8.74 0 12s.011 3.667.069 4.947c.176 4.444 2.333 6.551 6.984 6.727C8.333 23.989 8.74 24 12 24s3.667-.011 4.947-.069c4.651-.176 6.808-2.283 6.984-6.727.058-1.28.069-1.68.069-4.947s-.011-3.667-.069-4.947C23.755 2.59 21.6.245 16.947.069 15.667.011 15.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+      // ============================================
+      // MOBILE MENU TOGGLE
+      // ============================================
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+
+      // Adiciona um span para o ícone para facilitar a troca
+      const menuIcon = document.querySelector('.hamburger-icon');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const isExpanded = navLinks.classList.contains('active');
+        mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+        menuIcon.textContent = isExpanded ? '✕' : '☰'; // Troca o ícone
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          menuIcon.textContent = '☰'; // Garante que o ícone volte ao normal
+        });
+      });
+
+      // ============================================
+      // FORM VALIDATION & WHATSAPP INTEGRATION
+      // ============================================
+      const contactForm = document.getElementById('contactForm');
+
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Clear previous errors
+        document.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('error');
+        });
+
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const service = document.getElementById('service').value;
+        const courseInterest = document.getElementById('courseInterest').value;
+        const message = document.getElementById('message').value.trim();
+
+        let isValid = true;
+
+        // Validate required fields
+        if (!name) {
+          document
+            .getElementById('name')
+            .closest('.form-group')
+            .classList.add('error');
+          isValid = false;
+        }
+
+        // Validação de telefone mais robusta (verifica se tem pelo menos 10 dígitos)
+        const phoneDigits = phone.replace(/\D/g, '');
+        if (!phone || phoneDigits.length < 10) {
+          const phoneGroup = document
+            .getElementById('phone')
+            .closest('.form-group');
+          phoneGroup.classList.add('error');
+          isValid = false;
+        }
+
+        // If validation fails, stop here
+        if (!isValid) {
+          return;
+        }
+
+        // ============================================
+        // BUILD WHATSAPP MESSAGE
+        // Template: Hello Giovanna, my name is {NAME}.
+        //           Phone: {PHONE}
+        //           Desired Service: {SERVICE}
+        //           Course: {COURSE}
+        //           Message: {MESSAGE}
+        // ============================================
+        let whatsappMessage = `Olá Giovanna, meu nome é ${name}.\n`;
+        whatsappMessage += `Telefone: ${phone}\n`;
+
+        if (service) {
+          whatsappMessage += `Serviço Desejado: ${service}\n`;
+        }
+
+        whatsappMessage += `Interesse em Curso: ${courseInterest}\n`;
+
+        if (message) {
+          whatsappMessage += `Mensagem: ${message}`;
+        }
+
+        // ============================================
+        // ENCODE MESSAGE FOR URL
+        // Replace with your actual WhatsApp number
+        // Format: 55 (country code) + DDD + number
+        // Example: 5511999999999
+        // ============================================
+        const whatsappNumber = '5511975396464'; // REPLACE WITH ACTUAL NUMBER
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        // Open WhatsApp in new tab
+        window.open(whatsappURL, '_blank');
+
+        // Optional: Reset form after submission
+        contactForm.reset();
+      });
+
+      // ============================================
+      // PHONE NUMBER FORMATTING (Brazilian format)
+      // ============================================
+      const phoneInput = document.getElementById('phone');
+
+      phoneInput.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');
+
+        if (value.length <= 11) {
+          // Format: (00) 00000-0000
+          value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+          value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+        }
+
+        e.target.value = value;
+      });
+
+      // ============================================
+      // SMOOTH SCROLL ENHANCEMENT
+      // Already handled by CSS, but adding focus management
+      // ============================================
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.focus({ preventScroll: true });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
